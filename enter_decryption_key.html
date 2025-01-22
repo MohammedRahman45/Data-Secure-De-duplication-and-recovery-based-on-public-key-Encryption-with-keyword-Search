@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Decryption Key</title>
+    <style>
+        div {
+            text-align: center;
+            padding: 10px;
+        }
+        h1 {
+            color: blue;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            margin-top: 5px;
+        }
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Enter Decryption Key</h1>
+        <form action="{{ url_for('enter_decryption_key') }}" method="POST">
+            <label for="encryption_key">Enter Decryption Key:</label>
+            <input type="text" id="encryption_key" name="encryption_key" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if error_message %}
+            <div class="error-message"><h2>{{ error_message }}</h2></div>
+        {% endif %}
+    </div>
+</body>
+</html>
